@@ -3,9 +3,23 @@ Input: a List of integers as well as an integer `k` representing the size of the
 Returns: a List of integers
 '''
 def sliding_window_max(nums, k):
-    # Your code here
+    
+    startWindowIndex = 0
+    endWindowIndex = k
+    holder = []
 
-    pass
+    for _ in nums:
+        window = nums[startWindowIndex:endWindowIndex]
+        max_value = max(window)
+        holder.append(max_value)
+
+        # continously move window to right until we reach the end
+        if endWindowIndex < len(nums):
+            startWindowIndex += 1
+            endWindowIndex += 1
+        else:
+            return holder
+    return holder
 
 
 if __name__ == '__main__':
