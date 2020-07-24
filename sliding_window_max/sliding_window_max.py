@@ -4,23 +4,17 @@ Returns: a List of integers
 '''
 def sliding_window_max(nums, k):
     
-    startWindowIndex = 0
-    endWindowIndex = k
-    holder = []
-
-    for _ in nums:
-        window = nums[startWindowIndex:endWindowIndex]
-        max_value = max(window)
-        holder.append(max_value)
-
-        # continously move window to right until we reach the end
-        if endWindowIndex < len(nums):
-            startWindowIndex += 1
-            endWindowIndex += 1
-        else:
-            return holder
-    return holder
-
+    window_arr = []
+    array_output = []
+    while 0 < len(nums) - (k-1):
+        for number in nums[0:k]:
+            window_arr.append(number)
+        window_arr.sort()
+        max_number = window_arr[k-1]
+        array_output.append(max_number)
+        nums.pop(0)
+        window_arr = []
+    return array_output
 
 if __name__ == '__main__':
     # Use the main function here to test out your implementation 

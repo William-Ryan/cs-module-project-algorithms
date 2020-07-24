@@ -1,7 +1,8 @@
 import time
 import unittest
 from sliding_window_max import sliding_window_max
-
+import sys 
+f = sys.path.append("../data/input.txt")
 class Test(unittest.TestCase):
     def test_sliding_window_max_large_input(self):
         arr = []
